@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+    <class>org.igniterealtime.openfire.plugins.randomavatar.RandomAvatarPlugin</class>
+    <name>${project.name}</name>
+    <description>${project.description}</description>
+    <author>Guus der Kinderen</author>
+    <version>${project.version}</version>
+    <date>03/27/2018</date>
+    <minServerVersion>4.1.5</minServerVersion>
+    <minJavaVersion>1.8</minJavaVersion>
+</plugin>

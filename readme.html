@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+    <title>Random Avatar Plugin Readme</title>
+    <style type="text/css">
+        BODY {
+            font-size : 100%;
+        }
+        BODY, TD, TH {
+            font-family : tahoma, verdana, arial, helvetica, sans-serif;
+            font-size : 0.8em;
+        }
+        H3 {
+            font-size : 10pt;
+            font-style: italic;
+            color: #004444;
+        }
+        H2 {
+            font-size : 10pt;
+            font-weight : bold;
+        }
+        A:hover {
+            text-decoration : none;
+        }
+        H1 {
+            font-family : tahoma, arial, helvetica, sans-serif;
+            font-size : 1.4em;
+            font-weight: bold;
+            border-bottom : 1px #ccc solid;
+            padding-bottom : 2px;
+        }
+
+        TT {
+            font-family : courier new;
+            font-weight : bold;
+            color : #060;
+        }
+        PRE {
+            font-family : courier new;
+            font-size : 100%;
+        }
+        #datatable TH {
+            color : #fff;
+            background-color : #2A448C;
+            text-align : left;
+        }
+        #datatable TD {
+            background-color : #FAF6EF;
+        }
+        #datatable .name {
+            background-color : #DCE2F5;
+        }
+    </style>
+</head>
+<body>
+
+<h1>
+    Random Avatar Plugin Readme
+</h1>
+
+<h2>Overview</h2>
+
+<p>
+    The inVerse Random Avatar adds a webservice to Openfire, that can be used to obtain avatars from.
+</p>
+
+<h2>Installation</h2>
+
+<p>
+    Copy inverse.jar into the plugins directory of your Openfire installation. The plugin will then be automatically
+    deployed. To upgrade to a new version, copy the new inverse.jar file over the existing file.
+</p>
+
+<h2>Configuration</h2>
+
+<p>
+    inVerse depends on HTTP binding, and will not work if the HTTP binding service of Openfire is disabled. It can be enabled on
+    the Server > Server Settings > HTTP Binding page.
+</p>
+
+<h2>Using the Plugin</h2>
+
+<p>
+    When properly configured, the web service will be made available on the same ports as the HTTP binding
+    interface. By default, these URLs are:
+</p>
+<ul>
+    <li><tt>http://&lt;your-server-name&gt;:7070/randomavatar/</tt> (unencrypted HTTP)</li>
+    <li><tt>https://&lt;your-server-name&gt;:7443/randomavatar/</tt> (encrypted HTTPS)</li>
+</ul>
+<p>
+    Each request is normally responded to with an avatar-like image. Different images can be obtained, by
+    adding text to the path of the URL, such as shown here:
+</p>
+<p>
+    <tt>https://&lt;your-server-name&gt;:7443/randomavatar/<b>sometext</b></tt>.
+</p>
+<p>
+    Requesting the same URL will generate a response using the same image. It cannot be guaranteed that for
+    different versions of this plugin the URL-to-image mapping will be the same.
+</p>
+<p>
+    Various different image collections are available. Currently, the plugin contains three collections:
+</p>
+<ul>
+    <li>avatar</li>
+    <li>kids</li>
+    <li>cinema</li>
+</ul>
+<p>
+    By default, images are generated from the combination of all collections. To limit generation to one
+    collection, append the name of the collection as a path segment, like this:
+</p>
+<p>
+    <tt>https://&lt;your-server-name&gt;:7443/randomavatar/<b>kids/</b></tt>.
+</p>
+<p>
+    Adding more text to the path above will result in images just from that collection.
+</p>
+<p>
+    When a collection name is used that is not recognized, the plugin will return to its default behavior
+    of returning an image from any of the available collections.
+</p>
+
+<h2>Attribution</h2>
+<ul>
+    <li>The images from the 'avatar' collection are made by <a href="http://www.freepik.com/">Freepik</a> from <a href="https://www.flaticon.com/">Flaticon</a>.</li>
+    <li>The images from the 'kids' collection are made by <a href="http://www.freepik.com/">Freepik</a> from <a href="https://www.flaticon.com/">Flaticon</a>.</li>
+    <li>The images from the 'cinema' collection are made by <a href="http://dariusdan.com/">Darius Dan</a> from <a href="https://www.flaticon.com/">Flaticon</a>.</li>
+</ul>
+
+</body>
+</html>
