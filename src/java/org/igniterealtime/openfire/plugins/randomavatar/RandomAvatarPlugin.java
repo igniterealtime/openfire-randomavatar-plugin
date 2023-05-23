@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Ignite Realtime Foundation. All rights reserved.
+ * Copyright (C) 2019-2023 Ignite Realtime Foundation. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,6 @@ import org.apache.tomcat.SimpleInstanceManager;
 import org.eclipse.jetty.apache.jsp.JettyJasperInitializer;
 import org.eclipse.jetty.plus.annotation.ContainerInitializer;
 import org.eclipse.jetty.webapp.WebAppContext;
-import org.jivesoftware.admin.AuthCheckFilter;
 import org.jivesoftware.openfire.container.Plugin;
 import org.jivesoftware.openfire.container.PluginManager;
 import org.jivesoftware.openfire.http.HttpBindManager;
@@ -45,23 +44,12 @@ public class RandomAvatarPlugin implements Plugin
 
     private static final Logger Log = LoggerFactory.getLogger( RandomAvatarServlet.class );
 
-    private final String[] publicResources = new String[]
-        {
-            CONTEXT_ROOT + "/*"
-        };
-
     private WebAppContext context = null;
 
     @Override
     public void initializePlugin( PluginManager manager, File pluginDirectory )
     {
         Log.debug( "Plugin initialization started." );
-
-        Log.debug( "Excluding all public resources from the Authorization-Check filter." );
-        for ( final String publicResource : publicResources )
-        {
-            AuthCheckFilter.addExclude( publicResource );
-        }
 
         Log.debug( "Adding the Webchat sources to the same context as the one that's providing the BOSH interface." );
         context = new WebAppContext( null, pluginDirectory.getPath() + File.separator + "classes/", "/" + CONTEXT_ROOT );
@@ -89,12 +77,6 @@ public class RandomAvatarPlugin implements Plugin
             HttpBindManager.getInstance().removeJettyHandler( context );
             context.destroy();
             context = null;
-        }
-
-        for ( final String publicResource : publicResources )
-        {
-            Log.debug( "Removing Authorization-Check filter exemptions." );
-            AuthCheckFilter.removeExclude( publicResource );
         }
 
         Log.debug( "Plugin finished started." );
