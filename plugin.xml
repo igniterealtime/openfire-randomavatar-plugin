@@ -6,7 +6,5 @@
     <author>Guus der Kinderen</author>
     <version>${project.version}</version>
     <date>2024-11-20</date>
-    <minServerVersion>4.1.5</minServerVersion>
-    <priorToServerVersion>5.0.0</priorToServerVersion>
-    <minJavaVersion>1.8</minJavaVersion>
+    <minServerVersion>5.0.0</minServerVersion>
 </plugin>
