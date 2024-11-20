@@ -5,7 +5,6 @@
     <description>${project.description}</description>
     <author>Guus der Kinderen</author>
     <version>${project.version}</version>
-    <date>2023-05-23</date>
-    <minServerVersion>4.1.5</minServerVersion>
-    <minJavaVersion>1.8</minJavaVersion>
+    <date>2024-11-20</date>
+    <minServerVersion>5.0.0</minServerVersion>
 </plugin>
