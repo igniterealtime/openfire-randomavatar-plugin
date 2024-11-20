@@ -12,7 +12,7 @@
 
     <groupId>org.igniterealtime.openfire.plugins</groupId>
     <artifactId>randomavatar</artifactId>
-    <version>1.1.1-SNAPSHOT</version>
+    <version>1.1.1</version>
 
     <name>Random Avatar Generator Plugin</name>
     <description>Generates semi-random avatar images.</description>
